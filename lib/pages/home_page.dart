@@ -29,7 +29,28 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
               alignment: Alignment(0, 0.75),
-              child: SmoothPageIndicator(controller: _pageController, count: 3))
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      _pageController.previousPage(
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeIn);
+                    },
+                    child: Text('Previous'),
+                  ),
+                  SmoothPageIndicator(controller: _pageController, count: 3),
+                  ElevatedButton(
+                    onPressed: () {
+                      _pageController.nextPage(
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeIn);
+                    },
+                    child: Text('Next'),
+                  ),
+                ],
+              ))
         ],
       ),
     );
