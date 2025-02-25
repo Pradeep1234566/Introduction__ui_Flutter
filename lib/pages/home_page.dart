@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:introduction_ui/pages/Intro_page_1.dart';
+import 'package:introduction_ui/pages/Intro_page_2.dart';
+import 'package:introduction_ui/pages/Intro_page_3.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,14 +20,15 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           PageView(
+            controller: _pageController,
             children: [
-              Container(color: Colors.blue),
-              Container(color: Colors.yellow),
-              Container(color: Colors.green),
+              IntroPage1(),
+              IntroPage2(),
+              IntroPage3(),
             ],
           ),
           Container(
-              alignment: Alignment(0, 0),
+              alignment: Alignment(0, 0.75),
               child: SmoothPageIndicator(controller: _pageController, count: 3))
         ],
       ),
